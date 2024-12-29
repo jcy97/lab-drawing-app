@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "sans-serif";
+}
+
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local("Material Icons"), local("MaterialIcons-Regular"),
+    url(https://example.com/MaterialIcons-Regular.woff2) format("woff2"),
+    url(https://example.com/MaterialIcons-Regular.woff) format("woff"),
+    url(https://example.com/MaterialIcons-Regular.ttf) format("truetype");
+}
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #4a98f7;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  padding: 10px;
+  max-width: 1050px;
+}
+
+section {
+  background-color: #fff;
+  border: 7px;
+}
+
+.tools-board {
+  width: 210px;
+  padding: 15px 22px 0;
+}
+.tools-board .row {
+  margin-bottom: 20px;
+}
+.row .options {
+  list-style: none;
+  margin: 10px 0 0 5px;
+}
+.row .options .option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.option :where(span, label) {
+  color: #5a6168;
+  cursor: pointer;
+  padding-left: 10px;
+}
+.option:is(:hover, .active) :where(span, label) {
+  color: #4a98f7;
+}
+.option #fill-color {
+  cursor: pointer;
+  height: 14px;
+  width: 14px;
+}
+#fill-color:checked ~ label {
+  color: #4a98f7;
+}
+.option #size-slider {
+  width: 100%;
+  height: 5px;
+  margin-top: 10px;
+}
+.colors .options {
+  display: flex;
+  justify-content: space-between;
+}
+.colors .option {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin-top: 3px;
+  position: relative;
+}
+.colors .option:hover {
+  cursor: pointer;
+}
+.colors .option:nth-child(1) {
+  background: #fff;
+  border: 1px solid #bfbfbf;
+}
+.colors .option:nth-child(2) {
+  background: #000;
+}
+.colors .option:nth-child(3) {
+  background: #e02020;
+}
+.colors .option:nth-child(4) {
+  background: #60d400;
+}
+.colors .option:nth-child(5) {
+  background: #4a98f7;
+}
+.colors .option.selected::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  height: 12px;
+  width: 12px;
+  background: inherit;
+  border-radius: inherit;
+  border: 2px solid #fff;
+  transform: translate(-50%, -50%);
+}
+.colors .option:first-child.selected::before {
+  border-color: #ccc;
+}
+.colors #color-picker {
+  opacity: 0;
+  cursor: pointer;
+}
+
+.buttons button {
+  width: 100%;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 11px 0;
+  font-size: 0.9rem;
+  margin-bottom: 13px;
+  background: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.buttons .clear-canvas {
+  color: #6c757d;
+  border: 1px solid #6c757d;
+  translate: all 0.3s ease;
+}
+.buttons .clear-canvas:hover {
+  color: #fff;
+  background: #6c757d;
+}
+.buttons .save-image {
+  background: #4a98f7;
+  border: 1px solid #4a98f7;
+}
+.drawing-board {
+  flex: 1;
+}
+
+.drawing-board canvas {
+  width: 100%;
+  height: 100%;
+}
