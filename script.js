@@ -16,8 +16,10 @@ let prevMouseX,
   brushWidth = 5;
 
 window.addEventListener("load", () => {
-  canvas.width = canvas.offsetHeight;
-  canvas.height = canvas.offsetHeight;
+  const scaleFactor = 2;
+  canvas.width = canvas.offsetWidth * scaleFactor;
+  canvas.height = canvas.offsetHeight * scaleFactor;
+  ctx.scale(scaleFactor, scaleFactor);
 });
 
 const drawRect = (e) => {
@@ -56,8 +58,9 @@ const drawTriangle = (e) => {
 };
 const startDraw = (e) => {
   isDrawing = true;
-  prevMouseX = e.offsetX;
-  prevMouseY = e.offsetY;
+  const rect = canvas.getBoundingClientRect();
+  prevMouseX = e.clientX - rect.left;
+  prevMouseY = e.clientY - rect.top;
   ctx.beginPath();
   ctx.lineWidth = brushWidth;
   ctx.strokeStyle = selectedColor;
@@ -66,17 +69,21 @@ const startDraw = (e) => {
 };
 const drawing = (e) => {
   if (!isDrawing) return;
+  const rect = canvas.getBoundingClientRect();
   ctx.putImageData(snapShot, 0, 0);
+  const mouseX = e.clientX - rect.left;
+  const mouseY = e.clientY - rect.top;
+
   if (selectedTool === "brush" || selectedTool === "eraser") {
     ctx.strokeStyle = selectedTool === "eraser" ? "#fff" : selectedColor;
-    ctx.lineTo(e.offsetX, e.offsetY);
+    ctx.lineTo(mouseX, mouseY);
     ctx.stroke();
   } else if (selectedTool === "rectangle") {
-    drawRect(e);
+    drawRect({ offsetX: mouseX, offsetY: mouseY });
   } else if (selectedTool === "circle") {
-    drawCircle(e);
+    drawCircle({ offsetX: mouseX, offsetY: mouseY });
   } else {
-    drawTriangle(e);
+    drawTriangle({ offsetX: mouseX, offsetY: mouseY });
   }
 };
 toolBtns.forEach((btn) => {
