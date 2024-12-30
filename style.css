@@ -114,20 +114,20 @@ section {
   cursor: pointer;
 }
 .colors .option:nth-child(1) {
-  background: #fff;
+  background-color: #fff;
   border: 1px solid #bfbfbf;
 }
 .colors .option:nth-child(2) {
-  background: #000;
+  background-color: #000;
 }
 .colors .option:nth-child(3) {
-  background: #e02020;
+  background-color: #e02020;
 }
 .colors .option:nth-child(4) {
-  background: #60d400;
+  background-color: #60d400;
 }
 .colors .option:nth-child(5) {
-  background: #4a98f7;
+  background-color: #4a98f7;
 }
 .colors .option.selected::before {
   position: absolute;
