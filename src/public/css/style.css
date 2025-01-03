@@ -183,6 +183,15 @@ section {
   color: #6c757d;
   translate: all 0.3s ease;
 }
+.buttons .disconnect-from-server {
+  background-color: rgb(255, 54, 67);
+  border: 1px solid rgb(156, 48, 55);
+}
+.buttons .disconnect-from-server:hover {
+  background-color: rgb(255, 192, 196);
+  color: #6c757d;
+  translate: all 0.3s ease;
+}
 .drawing-board {
   flex: 1;
 }

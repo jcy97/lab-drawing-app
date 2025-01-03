@@ -78,6 +78,15 @@ const drawing = (e) => {
     ctx.strokeStyle = selectedTool === "eraser" ? "#fff" : selectedColor;
     ctx.lineTo(mouseX, mouseY);
     ctx.stroke();
+    if (!isSoloDrawing) {
+      const command = {
+        type: selectedTool,
+        x: mouseX,
+        y: mouseY,
+        color: selectedTool === "eraser" ? "#fff" : selectedColor,
+      };
+      sendDrawCommand(command); // 데이터 채널을 통해 전송
+    }
   } else if (selectedTool === "rectangle") {
     drawRect({ offsetX: mouseX, offsetY: mouseY });
   } else if (selectedTool === "circle") {
