@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/socket.io/socket.io.js"></script>
     <script src="/public/js/app.js" defer></script>
+    <script src="/public/js/socket.js" defer></script>
     <link rel="stylesheet" href="/public/css/style.css" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -66,6 +68,7 @@
         <div class="row buttons">
           <button class="clear-canvas">Clear Canvas</button>
           <button class="save-image">Save As Image</button>
+          <button class="connect-to-server">Connect to Server</button>
         </div>
       </section>
       <section class="drawing-board">
